@@ -12,7 +12,11 @@ type SecondaryScreenProps = {
 export function SecondaryScreen({ navigation }: SecondaryScreenProps) {
   return (
     <flexboxLayout style={styles.container}>
-      <label style={styles.text}>You're viewing the secondary screen!</label>
+      <label
+        text="You're viewing the secondary screen!"
+        class="px-2 py-1 text-center text-blue-600 bg-blue-200 rounded-full"
+      />
+
       <button style={styles.button} onTap={() => navigation.goBack()}>
         Go back
       </button>
