@@ -10,22 +10,6 @@ import {
 class _WeatherByCityService {
   private allWeather: CityNameWeatherModel[] = [];
 
-  private informaitonsCityWeather = new BehaviorSubject<
-    CityWeatherModel | undefined
-  >(undefined);
-
-  readonly informaitonsCityWeatherObservable =
-    this.informaitonsCityWeather.asObservable();
-
-  public async urlInformationsWeather(url: string): Promise<CityWeatherModel> {
-    const informations = await new Promise<CityWeatherModel>(
-      (resolve, reject) => {
-        resolve(Http.getJSON(url));
-      }
-    );
-    return informations;
-  }
-
   async addACityWeather(
     latitude: number,
     longitude: number,
@@ -40,7 +24,7 @@ class _WeatherByCityService {
     let cityExisting: CityNameWeatherModel | undefined = this.allWeather.find(
       (weather) => weather.cityName === nameCity
     );
-    let res = await this.urlInformationsWeather(urlGetWeatherForecast);
+    let res: CityWeatherModel = {};
     if (cityExisting === undefined) {
       const cityWeatherWithName: CityNameWeatherModel = {
         cityName: nameCity,
