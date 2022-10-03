@@ -3,13 +3,7 @@ import { RouteProp } from '@react-navigation/core';
 import { FrameNavigationProp } from 'react-nativescript-navigation';
 import { MainStackParamList } from './NavigationParamList';
 import { StyleSheet } from 'react-nativescript';
-import { NativeScriptAutoFitTextModule } from '@nativescript/auto-fit-text/angular';
-
-// Be sure to add the plugin module to your NgModule
-@NgModule({
-	imports: [NativeScriptAutoFitTextModule],
-})
-
+import { WeatherByCityService } from '../services/weatherByCity.service';
 
 type ThirdScreenProps = {
   route: RouteProp<MainStackParamList, 'Third'>;
@@ -17,18 +11,16 @@ type ThirdScreenProps = {
 };
 
 export function ThirdScreen({ navigation }: ThirdScreenProps) {
+  WeatherByCityService.addACityWeather(45.1, 5.43, 'Grenoble');
+  WeatherByCityService.addACityWeather(47.541, 1.5414, 'Orléans');
+  console.log(WeatherByCityService.getAllWeather());
+  const grenobleWeather = WeatherByCityService.getWeatherByCityName('Grenoble');
   return (
     <flexboxLayout style={styles.container}>
-      <AutoFitText
-        style = {styles.text}
-        text="You're viewing the third screen!"
-        textWrap="false"
-      />
+      <label style={styles.text} text="You're viewing the third screen! " />
       <button style={styles.button} onTap={() => navigation.goBack()}>
-        Go back
+        Go back {grenobleWeather.cityName}
       </button>
-      
-
     </flexboxLayout>
   );
 }
