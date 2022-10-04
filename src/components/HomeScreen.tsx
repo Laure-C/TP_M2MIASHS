@@ -25,7 +25,7 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
         Second bouton
       </button>
       <button style={styles.button} onTap={() => navigation.navigate('Third')}>
-        Third bouton
+        Météo Grenoble
       </button>
     </flexboxLayout>
   );

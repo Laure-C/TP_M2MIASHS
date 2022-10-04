@@ -1,20 +1,11 @@
 import { CityNameWeatherModel } from '../models/cityNameWeather.model';
 import { CityWeatherModel } from '../models/cityWeather.model';
-import {
-  fromObject,
-  fromObjectRecursive,
-  Observable,
-  PropertyChangeData,
-} from 'tns-core-modules/data/observable';
+import { useEffect, useState } from 'react';
 
 class _WeatherByCityService {
   private allWeather: CityNameWeatherModel[] = [];
 
-  async addACityWeather(
-    latitude: number,
-    longitude: number,
-    nameCity: string
-  ): Promise<void> {
+  addACityWeather(latitude: number, longitude: number, nameCity: string) {
     let urlGetWeatherForecast: string =
       'https://api.darksky.net/forecast/e1ad16a2b7ba4b82167cb140f8b17640/' +
       latitude +
@@ -24,7 +15,9 @@ class _WeatherByCityService {
     let cityExisting: CityNameWeatherModel | undefined = this.allWeather.find(
       (weather) => weather.cityName === nameCity
     );
-    let res: CityWeatherModel = {};
+
+    let res: CityWeatherModel = this.useAnswer(urlGetWeatherForecast);
+
     if (cityExisting === undefined) {
       const cityWeatherWithName: CityNameWeatherModel = {
         cityName: nameCity,
@@ -35,6 +28,21 @@ class _WeatherByCityService {
       cityExisting.forecastWeather = res;
     }
   }
+
+  useAnswer = (url: string) => {
+    const [answer, setAnwser] = useState();
+
+    const getAnswer = async () => {
+      const res = await fetch(url);
+      const answer = await res.json();
+      setAnwser(answer);
+    };
+
+    useEffect(() => {
+      getAnswer();
+    }, []);
+    return answer;
+  };
 
   getAllWeather(): CityNameWeatherModel[] {
     return this.allWeather;

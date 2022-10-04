@@ -13,13 +13,12 @@ type ThirdScreenProps = {
 export function ThirdScreen({ navigation }: ThirdScreenProps) {
   WeatherByCityService.addACityWeather(45.1, 5.43, 'Grenoble');
   WeatherByCityService.addACityWeather(47.541, 1.5414, 'Orléans');
-  console.log(WeatherByCityService.getAllWeather());
   const grenobleWeather = WeatherByCityService.getWeatherByCityName('Grenoble');
   return (
     <flexboxLayout style={styles.container}>
       <label style={styles.text} text="You're viewing the third screen! " />
       <button style={styles.button} onTap={() => navigation.goBack()}>
-        Go back {grenobleWeather.cityName}
+        Go back {grenobleWeather?.forecastWeather?.currently?.summary}
       </button>
     </flexboxLayout>
   );
