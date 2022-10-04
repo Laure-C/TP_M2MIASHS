@@ -6,8 +6,8 @@ import { StyleSheet } from 'react-nativescript';
 import { WeatherByCityService } from '../services/weatherByCity.service';
 
 type ThirdScreenProps = {
-  route: RouteProp<MainStackParamList, 'Third'>;
-  navigation: FrameNavigationProp<MainStackParamList, 'Third'>;
+  route: RouteProp<MainStackParamList, 'GrenobleWeather'>;
+  navigation: FrameNavigationProp<MainStackParamList, 'GrenobleWeather'>;
 };
 
 export function ThirdScreen({ navigation }: ThirdScreenProps) {
@@ -16,10 +16,9 @@ export function ThirdScreen({ navigation }: ThirdScreenProps) {
   const grenobleWeather = WeatherByCityService.getWeatherByCityName('Grenoble');
   return (
     <flexboxLayout style={styles.container}>
-      <label style={styles.text} text="You're viewing the third screen! " />
-      <button style={styles.button} onTap={() => navigation.goBack()}>
-        Go back {grenobleWeather?.forecastWeather?.currently?.summary}
-      </button>
+      <label text="Voici la météo de grenoble! " />
+      <Image src="res://icon" stretch="aspectFill" />
+      <button onTap={() => navigation.goBack()}>Retour Menu</button>
     </flexboxLayout>
   );
 }
@@ -29,15 +28,5 @@ const styles = StyleSheet.create({
     height: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: 'yellow',
-  },
-  text: {
-    textAlignment: 'center',
-    fontSize: 24,
-    color: 'black',
-  },
-  button: {
-    fontSize: 24,
-    color: '#2e6ddf',
   },
 });

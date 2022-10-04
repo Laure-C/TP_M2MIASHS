@@ -3,6 +3,24 @@
 @tailwind utilities;
 
 ActionBar {
-  background-color: #65adf1;
-  color: white;
+  background-color: black;
+  color: #c3dc5f;
+}
+
+Page {
+  background-color: #272727;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+label {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 20px;
+}
+
+button {
+  background-color: rgb(22, 22, 22);
+  color: #c3dc5f;
+  text-align: center;
+  font-size: 24px;
 }

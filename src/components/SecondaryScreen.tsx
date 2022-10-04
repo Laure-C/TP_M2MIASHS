@@ -5,8 +5,8 @@ import { MainStackParamList } from './NavigationParamList';
 import { StyleSheet } from 'react-nativescript';
 
 type SecondaryScreenProps = {
-  route: RouteProp<MainStackParamList, 'Secondary'>;
-  navigation: FrameNavigationProp<MainStackParamList, 'Secondary'>;
+  route: RouteProp<MainStackParamList, 'AllWeathers'>;
+  navigation: FrameNavigationProp<MainStackParamList, 'AllWeathers'>;
 };
 
 export function SecondaryScreen({ navigation }: SecondaryScreenProps) {
@@ -17,9 +17,7 @@ export function SecondaryScreen({ navigation }: SecondaryScreenProps) {
         class="px-2 py-1 text-center text-blue-600 bg-blue-200 rounded-full"
       />
 
-      <button style={styles.button} onTap={() => navigation.goBack()}>
-        Go back
-      </button>
+      <button onTap={() => navigation.goBack()}>Go back</button>
     </flexboxLayout>
   );
 }
@@ -29,15 +27,5 @@ const styles = StyleSheet.create({
     height: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: 'yellow',
-  },
-  text: {
-    textAlignment: 'center',
-    fontSize: 24,
-    color: 'black',
-  },
-  button: {
-    fontSize: 24,
-    color: '#2e6ddf',
   },
 });

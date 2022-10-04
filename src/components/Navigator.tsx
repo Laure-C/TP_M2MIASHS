@@ -10,17 +10,32 @@ const StackNavigator = stackNavigatorFactory();
 export const mainStackNavigator = () => (
   <BaseNavigationContainer>
     <StackNavigator.Navigator
-      initialRouteName="Home"
+      initialRouteName="WeatherForecast"
       screenOptions={{
-        headerStyle: {
-          backgroundColor: 'white',
-        },
         headerShown: true,
       }}
     >
-      <StackNavigator.Screen name="Home" component={HomeScreen} />
-      <StackNavigator.Screen name="Secondary" component={SecondaryScreen} />
-      <StackNavigator.Screen name="Third" component={ThirdScreen} />
+      <StackNavigator.Screen
+        name="WeatherForecast"
+        component={HomeScreen}
+        options={{
+          title: 'Weather Forecast',
+        }}
+      />
+      <StackNavigator.Screen
+        name="AllWeathers"
+        component={SecondaryScreen}
+        options={{
+          title: 'Toutes les météos',
+        }}
+      />
+      <StackNavigator.Screen
+        name="GrenobleWeather"
+        component={ThirdScreen}
+        options={{
+          title: 'Météo de Grenoble',
+        }}
+      />
     </StackNavigator.Navigator>
   </BaseNavigationContainer>
 );

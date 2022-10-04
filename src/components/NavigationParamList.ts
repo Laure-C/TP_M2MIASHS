@@ -1,5 +1,5 @@
 export type MainStackParamList = {
-  Home: {};
-  Secondary: {};
-  Third: {};
+  WeatherForecast: {};
+  AllWeathers: {};
+  GrenobleWeather: {};
 };

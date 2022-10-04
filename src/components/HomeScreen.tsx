@@ -6,25 +6,20 @@ import { StyleSheet } from 'react-nativescript';
 import { MainStackParamList } from './NavigationParamList';
 
 type HomeScreenProps = {
-  route: RouteProp<MainStackParamList, 'Home'>;
-  navigation: FrameNavigationProp<MainStackParamList, 'Home'>;
+  route: RouteProp<MainStackParamList, 'WeatherForecast'>;
+  navigation: FrameNavigationProp<MainStackParamList, 'WeatherForecast'>;
 };
 
 export function HomeScreen({ navigation }: HomeScreenProps) {
   return (
     <flexboxLayout style={styles.container}>
-      <label style={styles.text}>Bienvenue dans le TP</label>
-      <label style={styles.text}>React NativeScript</label>
-      <button style={styles.button} onTap={() => Dialogs.alert('Tapped!')}>
-        Premier bouton
-      </button>
-      <button
-        style={styles.button}
-        onTap={() => navigation.navigate('Secondary')}
-      >
+      <label>Bienvenue dans le TP</label>
+      <label>React NativeScript</label>
+      <button onTap={() => Dialogs.alert('Tapped!')}>Premier bouton</button>
+      <button onTap={() => navigation.navigate('AllWeathers')}>
         Second bouton
       </button>
-      <button style={styles.button} onTap={() => navigation.navigate('Third')}>
+      <button onTap={() => navigation.navigate('GrenobleWeather')}>
         Météo Grenoble
       </button>
     </flexboxLayout>
@@ -36,14 +31,5 @@ const styles = StyleSheet.create({
     height: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
-  },
-  text: {
-    textAlignment: 'center',
-    fontSize: 24,
-    color: 'black',
-  },
-  button: {
-    fontSize: 24,
-    color: '#2e6ddf',
   },
 });
