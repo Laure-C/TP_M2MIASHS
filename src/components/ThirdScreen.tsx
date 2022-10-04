@@ -17,7 +17,6 @@ export function ThirdScreen({ navigation }: ThirdScreenProps) {
   return (
     <flexboxLayout style={styles.container}>
       <label text="Voici la météo de grenoble! " />
-      <Image src="../assets/clear-day.png" stretch="aspectFill" />
       <button onTap={() => navigation.goBack()}>Retour Menu</button>
     </flexboxLayout>
   );
