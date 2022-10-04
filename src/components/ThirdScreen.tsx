@@ -4,6 +4,7 @@ import { FrameNavigationProp } from 'react-nativescript-navigation';
 import { MainStackParamList } from './NavigationParamList';
 import { StyleSheet } from 'react-nativescript';
 import { WeatherByCityService } from '../services/weatherByCity.service';
+import { LinksIconWeather } from '../assets/LinkIconWeather';
 
 type ThirdScreenProps = {
   route: RouteProp<MainStackParamList, 'GrenobleWeather'>;
@@ -17,6 +18,7 @@ export function ThirdScreen({ navigation }: ThirdScreenProps) {
   return (
     <flexboxLayout style={styles.container}>
       <label text="Voici la météo de grenoble! " />
+      <image src={LinksIconWeather['cloudy']} />
       <button onTap={() => navigation.goBack()}>Retour Menu</button>
     </flexboxLayout>
   );

@@ -1,4 +1,4 @@
-export const linksIconWeather = {
+export const LinksIconWeather = {
   'clear-day': 'https://cdn-icons-png.flaticon.com/512/2698/2698194.png',
   'clear-night': 'https://cdn-icons-png.flaticon.com/512/5538/5538297.png',
   cloudy: 'https://cdn-icons-png.flaticon.com/512/6316/6316087.png',
