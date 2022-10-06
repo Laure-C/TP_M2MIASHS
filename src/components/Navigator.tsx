@@ -23,13 +23,6 @@ export const mainStackNavigator = () => (
         }}
       />
       <StackNavigator.Screen
-        name="AllWeathers"
-        component={SecondaryScreen}
-        options={{
-          title: 'Toutes les météos',
-        }}
-      />
-      <StackNavigator.Screen
         name="GrenobleWeather"
         component={ThirdScreen}
         options={{

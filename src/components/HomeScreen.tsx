@@ -18,10 +18,7 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
     <flexboxLayout style={styles.container}>
       <label>Bienvenue dans le TP</label>
       <label>React NativeScript</label>
-      <button onTap={() => Dialogs.alert('Tapped!')}>Premier bouton</button>
-      <button onTap={() => navigation.navigate('AllWeathers')}>
-        Second bouton
-      </button>
+      
       <button onTap={() => navigation.navigate('GrenobleWeather')}>
         Météo Grenoble
       </button>
