@@ -4,6 +4,7 @@ import { Dialogs } from '@nativescript/core';
 import { FrameNavigationProp } from 'react-nativescript-navigation';
 import { StyleSheet } from 'react-nativescript';
 import { MainStackParamList } from './NavigationParamList';
+import { WeatherByCityService } from '../services/weatherByCity.service';
 
 type HomeScreenProps = {
   route: RouteProp<MainStackParamList, 'WeatherForecast'>;
@@ -11,6 +12,8 @@ type HomeScreenProps = {
 };
 
 export function HomeScreen({ navigation }: HomeScreenProps) {
+  WeatherByCityService.addACityWeather(45.1, 5.43, 'Grenoble');
+  WeatherByCityService.addACityWeather(47.541, 1.5414, 'Orléans');
   return (
     <flexboxLayout style={styles.container}>
       <label>Bienvenue dans le TP</label>

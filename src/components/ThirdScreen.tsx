@@ -12,8 +12,6 @@ type ThirdScreenProps = {
 };
 
 export function ThirdScreen({ navigation }: ThirdScreenProps) {
-  WeatherByCityService.addACityWeather(45.1, 5.43, 'Grenoble');
-  WeatherByCityService.addACityWeather(47.541, 1.5414, 'Orléans');
   const grenobleWeather = WeatherByCityService.getWeatherByCityName('Grenoble');
   return (
     <flexboxLayout style={styles.container}>
